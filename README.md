@@ -36,6 +36,8 @@ Note: A smaller example file is included as well which can be handy when develop
 - [ ] Figure out / research a way to verify terminal input/output.
 - [ ] Test that completed madlib is properly written to disk with correct content.
 
+---
+
 #### Links and Resources
 - back-end server url: n/a
 - front-end application: n/a
