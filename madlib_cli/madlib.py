@@ -1,10 +1,12 @@
 import textwrap
+import re
 
 template = "assets/make_me_a_video_game_template.txt"
 test_template = "assets/dark_and_stormy_night_template.txt"
 
 def main():
     welcome()
+    parse_template("It was a {Adjective} and {Adjective} {Noun}.")
 
 def welcome(response = str()):
     print(textwrap.dedent("""
@@ -38,12 +40,12 @@ def read_template(source = template):
     except FileNotFoundError:
         return "The template file was not found."
 
+def parse_template(string):
+    stripped = re.sub(r'\{.+?}', '', string)
+    print(stripped)
+    return stripped
 
 
-
-
-def parse_template():
-    pass
 
 def merge():
     pass
