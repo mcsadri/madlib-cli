@@ -50,7 +50,16 @@ Note: A smaller example file is included as well which can be handy when develop
 
 #### How to initialize/run your application (where applicable)
 
-- e.g. python main.py
+- set-up virtual env
+  - \> ```python3.11 -m venv .venv```
+  - \> ```source .venv/bin/activate```
+  - \> ```pip install pytest```
+- run cli app
+  - \> ```py+hon madlib_cli/madlib.py```
+- run pytest
+  - \> ```pytest tests/test_madlib.py -s```
+- deactivate virtual env
+  - \> ```deactivate```
 
 #### How to use your library (where applicable)
 
