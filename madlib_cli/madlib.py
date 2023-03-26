@@ -1,8 +1,10 @@
 import textwrap
 
+template = "assets/make_me_a_video_game_template.txt"
+test_template = "assets/dark_and_stormy_night_template.txt"
+
 def main():
     welcome()
-    pass
 
 def welcome(response = str()):
     print(textwrap.dedent("""
@@ -27,16 +29,16 @@ def welcome(response = str()):
         #     return "Please type RUN or QUIT."
     return response
 
-
-def read_template(self):
-    # self parameter via https://stackoverflow.com/a/43839602
+def read_template(source = template):
     # tf, tc = template file, template contents
     try:
-        with open("assets/dark_and_stormy_night_template.txt", "r") as tf:
+        with open(source, "r") as tf:
             tc = tf.read()
             return tc
     except FileNotFoundError:
         return "The template file was not found."
+
+
 
 
 
@@ -47,4 +49,4 @@ def merge():
     pass
 
 
-main()
+#main()
