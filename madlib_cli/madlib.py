@@ -49,7 +49,7 @@ def read_template(source = test_template):
         return "The template file was not found."
 
 def parse_template(string):
-    # set regex pattern to match madlibs blanks
+    # set regex pattern to match madlibs blanks; regex solution assisted by ChatGPT
     pattern = r'\{([^}]*)\}'
     # set parts = a tuple containing the madlibs blanks from the string
     parts = tuple(re.findall(pattern, string))
