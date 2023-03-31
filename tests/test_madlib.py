@@ -29,7 +29,7 @@ def test_read_template_returns_stripped_string2():
     assert actual == expected
 
 
-@pytest.mark.skip("pending")
+#@pytest.mark.skip("pending")
 def test_parse_template():
     actual_stripped, actual_parts = parse_template(
         "It was a {Adjective} and {Adjective} {Noun}."
