@@ -58,11 +58,20 @@ def parse_template(string):
     #print(parts)
     #print(stripped)
     # send stripped and parts to the merge()
-    merge(stripped, parts)
+    merge (stripped, fill_in_the_blank(parts))
     return stripped, parts
 
-def merge(stripped, matches):
+def fill_in_the_blank(prompts):
+    answers = []
+    for _ in prompts:
+        print(f" Please enter a {_}:")
+        answers.append(input("> "))
+    print(answers)
     pass
 
 
-main()
+def merge(thing1, thing2):
+    pass
+
+
+#main()
