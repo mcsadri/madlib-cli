@@ -6,6 +6,14 @@ test_template = "assets/dark_and_stormy_night_template.txt"
 
 def main():
     welcome()
+    ml_file = read_template()
+    if ml_file != "The template file was not found.":
+        ml_stripped, ml_parts = parse_template(ml_file)
+        ml_responses = fill_in_the_blank(ml_parts)
+        ml_assembled = merge(ml_stripped, ml_responses)
+        write_file(ml_assembled)
+    else:
+        print("end")
 
 def welcome(response = str()):
     print(textwrap.dedent("""
@@ -17,7 +25,6 @@ def welcome(response = str()):
         *  to hilarious results. There are no winners or losers, only laughter.  *
         **************************************************************************
         """))
-    read_template()
 
 def read_template(source = test_template):
 #def read_template(source = template):
@@ -26,10 +33,10 @@ def read_template(source = test_template):
     try:
         with open(source, "r") as tf:
             tc = tf.read()
-            parse_template(tc)
             return tc
     # if madlibs file source is not found return error message
     except FileNotFoundError:
+        print("The template file was not found.")
         return "The template file was not found."
 
 def parse_template(string):
@@ -40,7 +47,6 @@ def parse_template(string):
     # set stripped = source string with the madlibs blanks removed replacing the regex matches with empty {}
     stripped = re.sub(pattern, "{}", string)
     # send stripped and parts to the merge()
-    merge(stripped, fill_in_the_blank(parts))
     return stripped, parts
 
 def fill_in_the_blank(prompts):
@@ -54,10 +60,10 @@ def merge(story, responses):
     for _ in responses:
         story = re.sub(r'{}', _, story, 1)
     print(story)
-    write_file(story)
     return story
 
 def write_file(output):
+    #with open(, 'w') as
     pass
 
 main()
