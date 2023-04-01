@@ -15,13 +15,13 @@ Keeping in mind the concept of Single Responsibility Principle, build a command 
   position within the template.
 - [X] After the resulting Madlib has been completed, provide the completed response back to the user in the command 
   line.
-- [ ] Write the completed text (Example)to a new file on your file system (in the repo).
+- [X] Write the completed text (Example)to a new file on your file system (in the repo).
 Note: A smaller example file is included as well which can be handy when developing/testing.
 
 ### Testing Details
 
 - You are NOT required to test terminal input/output, AKA print and input functions.
-- However you ARE expected to have meaningful tests for your application.
+- However, you ARE expected to have meaningful tests for your application.
 - So how can we skip testing print and output functionality while still proceeding with confidence?
 - The resolution to that dilemma is to break down your code so that it is more easily testable.
 
