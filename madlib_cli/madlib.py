@@ -4,13 +4,10 @@ import re
 def main():
     template = welcome()
     ml_file = read_template(template)
-    if ml_file != "The template file was not found.":
-        ml_stripped, ml_parts = parse_template(ml_file)
-        ml_responses = fill_in_the_blank(ml_parts)
-        ml_assembled = merge(ml_stripped, ml_responses)
-        write_file(template, ml_assembled)
-    else:
-        print("end")
+    ml_stripped, ml_parts = parse_template(ml_file)
+    ml_responses = fill_in_the_blank(ml_parts)
+    ml_assembled = merge(ml_stripped, ml_responses)
+    write_file(template, ml_assembled)
 
 def welcome(response = str()):
     print(textwrap.dedent("""
