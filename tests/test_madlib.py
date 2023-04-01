@@ -1,20 +1,5 @@
 import pytest
-from madlib_cli.madlib import welcome, read_template, parse_template, merge
-
-# def test_welcome_run():
-#     welcome_actual = welcome("RUN")
-#     welcome_expected = "run"
-#     assert welcome_actual == welcome_expected
-#
-# def test_welcome_quit():
-#     welcome_actual = welcome("QuiT")
-#     welcome_expected = "quit"
-#     assert welcome_actual == welcome_expected
-#
-# def test_welcome_invalid_input():
-#     welcome_actual = welcome("play")
-#     welcome_expected = "Please type RUN or QUIT."
-#     assert welcome_actual == welcome_expected
+from madlib_cli.madlib import read_template, parse_template, merge
 
 @pytest.mark.skip("pending")
 def test_read_template_returns_stripped_string():
@@ -47,7 +32,7 @@ def test_parse_template():
     assert actual_parts == expected_parts
 
 
-@pytest.mark.skip("pending")
+#@pytest.mark.skip("pending")
 def test_merge():
     actual = merge("It was a {} and {} {}.", ("dark", "stormy", "night"))
     expected = "It was a dark and stormy night."
