@@ -11,9 +11,9 @@ Keeping in mind the concept of Single Responsibility Principle, build a command 
 - [X] Print a welcome message to the user, explaining the Madlib process and command line interactions
 - [X] Read a template Madlib file (Example), and parse that file into usable parts.
 - [X] Prompt the user to submit a series of words to fit each of the required components of the Madlib template.
-- [ ] With the collected user inputs, populate the template such that each provided input is placed into the correct 
+- [X] With the collected user inputs, populate the template such that each provided input is placed into the correct 
   position within the template.
-- [ ] After the resulting Madlib has been completed, provide the completed response back to the user in the command 
+- [X] After the resulting Madlib has been completed, provide the completed response back to the user in the command 
   line.
 - [ ] Write the completed text (Example)to a new file on your file system (in the repo).
 Note: A smaller example file is included as well which can be handy when developing/testing.
@@ -29,7 +29,8 @@ Note: A smaller example file is included as well which can be handy when develop
       of the file’s contents.
     - [X] `read_template` should raise a FileNotFoundError if path is invalid.
     - [X] Create and test a `parse_template` function that takes in a template string and returns a string with language parts removed and a separate tuple of those language parts.
-    - [ ] Create and test a `merge` function that takes in a “bare” template and a list of user entered language parts, and returns a string with the language parts inserted into the template.
+    - [X] Create and test a `merge` function that takes in a “bare” template and a list of user entered language 
+      parts, and returns a string with the language parts inserted into the template.
 
 ### Stretch Goals
 

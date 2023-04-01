@@ -1,11 +1,16 @@
 import textwrap
 import re
 
-template = "assets/make_me_a_video_game_template.txt"
-test_template = "assets/dark_and_stormy_night_template.txt"
-
 def main():
-    welcome()
+    template = welcome()
+    ml_file = read_template(template)
+    if ml_file != "The template file was not found.":
+        ml_stripped, ml_parts = parse_template(ml_file)
+        ml_responses = fill_in_the_blank(ml_parts)
+        ml_assembled = merge(ml_stripped, ml_responses)
+        write_file(template, ml_assembled)
+    else:
+        print("end")
 
 def welcome(response = str()):
     print(textwrap.dedent("""
@@ -17,20 +22,21 @@ def welcome(response = str()):
         *  to hilarious results. There are no winners or losers, only laughter.  *
         **************************************************************************
         """))
-    read_template()
+    reply = str()
+    print("Pick a madlib. 1 (for test) or 2 (for full):")
+    while reply != 1 and reply != 2:
+        reply = input("> ")
+        if reply == "1":
+            return "assets/dark_and_stormy_night_template.txt"
+        elif reply == "2":
+            return "assets/make_me_a_video_game_template.txt"
 
-def read_template(source = test_template):
-#def read_template(source = template):
+def read_template(source):
     # tf, tc = template file, template contents
     # try to open madlibs file source, read contents, and send contents to parse_template()
-    try:
-        with open(source, "r") as tf:
-            tc = tf.read()
-            parse_template(tc)
-            return tc
-    # if madlibs file source is not found return error message
-    except FileNotFoundError:
-        return "The template file was not found."
+    with open(source, "r") as tf:
+        tc = tf.read()
+        return tc
 
 def parse_template(string):
     # set regex pattern to match madlibs blanks; regex/findall solution assisted by ChatGPT
@@ -40,7 +46,6 @@ def parse_template(string):
     # set stripped = source string with the madlibs blanks removed replacing the regex matches with empty {}
     stripped = re.sub(pattern, "{}", string)
     # send stripped and parts to the merge()
-    merge(stripped, fill_in_the_blank(parts))
     return stripped, parts
 
 def fill_in_the_blank(prompts):
@@ -54,10 +59,11 @@ def merge(story, responses):
     for _ in responses:
         story = re.sub(r'{}', _, story, 1)
     print(story)
-    write_file(story)
     return story
 
-def write_file(output):
-    pass
+def write_file(loc, finished):
+    file_name = loc.replace("template", "output")
+    with open(file_name, "w") as output:
+        output.write(finished)
 
 main()
